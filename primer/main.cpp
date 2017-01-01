@@ -13,6 +13,7 @@
 #include <thread>
 
 using std::cout;
+using std::cin;
 using std::endl;
 using std::vector;
 using std::string;
@@ -105,6 +106,10 @@ public:
     }
 };
 
+constexpr int bufsize()
+{
+    return 1024;
+}
 
 int main(int argc, const char * argv[]) {
     
@@ -149,6 +154,52 @@ int main(int argc, const char * argv[]) {
     t4.join();
     
 
+    //编译期不报错，但是运行期不可知
+    string nulls;
+    cout<<nulls[0]<<nulls[10]<<endl;
+    
+    //迭代器
+    const string cs = "keep clarms";
+    for (auto &c : cs) {
+        cout<<" "<<c;
+    }
+    cout<<endl;
+    
+//    vector<int> vi;
+//    int i;
+//    while(cin>>i) {
+//        vi.push_back(i);
+//        if (0==i) {
+//            break;
+//        }
+//    }
+//    
+//    vector<string> vs;
+//    string is;
+//    while (cin>>is) {
+//        vs.push_back(is);
+//        if (is.length() == 0) {
+//            break;
+//        }
+//    }
+//    
+////    迭代器循环中修改容器长度，危险： 添加不行，删除危险，要看删除一个节点对另外节点有无影响
+////    list，map，set时删除
+////    http://mp.weixin.qq.com/s/qonNrKKZLladvIwvurQCTA
+//    for (auto it = vs.begin(); it != vs.end(); it++) {
+//        if (*it == "hi") {
+////            vs.push_back("HI");  // 发生闪退
+//            it = vs.erase(it);
+//        }
+//    }
+    
+    
+    //数组声明, buf和buf2 都需要 constexpr ， 否则编译不报错，但运行异常
+    constexpr unsigned buf_size = 1024;
+    int buf[buf_size]; buf[0]=1;
+    int buf2[bufsize()]; buf2[0]=1;
+    int buf3[4*7-1];    buf3[0]=1;
+//    int buf4[2]="hi";// error
     return 0;
 }
 
