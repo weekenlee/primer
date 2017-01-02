@@ -200,6 +200,18 @@ int main(int argc, const char * argv[]) {
     int buf2[bufsize()]; buf2[0]=1;
     int buf3[4*7-1];    buf3[0]=1;
 //    int buf4[2]="hi";// error
+    
+    
+    const char ca[] = {'h','e','l','l','o'};
+    const char c = 'e';
+    char cb[] = {'a','b','c'};
+    vector<char> vca(std::begin(ca), std::end(ca));
+    const char *p = ca;
+    while (*p) {
+        cout<<*p<<endl;
+        ++p;
+    }
+    
     return 0;
 }
 
