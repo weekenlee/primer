@@ -25,6 +25,7 @@ using std::thread;
 //可以处理空串
 vector<string> split_substr(string src, string pattern)
 {
+    cout<<"call "<<__func__<<endl;
     vector<string> result;
     string::size_type pos = 0;
     src += pattern;
@@ -46,6 +47,8 @@ vector<string> split_substr(string src, string pattern)
 //处理不了空串的情况
 void split_findnf(const string& src, vector<string>& tokens, const string& delimeter)
 {
+    cout<<"call "<<__func__<<endl;
+
     string::size_type lastPos = src.find_first_not_of(delimeter,0);
     string::size_type pos = src.find_first_of(delimeter, lastPos);
     
@@ -60,6 +63,8 @@ void split_findnf(const string& src, vector<string>& tokens, const string& delim
 //处理不了连续空串
 void split_regex(const string& src, vector<string>& tokens, const string& delimeter)
 {
+    cout<<"call "<<__func__<<endl;
+
     regex reg(delimeter);
     sregex_token_iterator it(src.begin(), src.end(), reg, -1);
     sregex_token_iterator end;
@@ -73,6 +78,8 @@ void split_regex(const string& src, vector<string>& tokens, const string& delime
 template <typename T>
 void helper_print_vc(const vector<T>& ve)
 {
+    cout<<"call "<<__func__<<endl;
+
     for (typename vector<T>::const_iterator iter = ve.begin(); iter != ve.end(); iter++) {
         cout<<*iter<<endl;
     }
@@ -211,6 +218,9 @@ int main(int argc, const char * argv[]) {
         cout<<*p<<endl;
         ++p;
     }
+    
+    int num14 = 123'324'230;
+    int onum14 = 0b00000001;
     
     return 0;
 }
