@@ -224,7 +224,15 @@ int main(int argc, const char * argv[]) {
     int onum14 = 0b00000001;
     
     
-    
+    //智能指针
+    std::shared_ptr<string> pstr  = std::make_shared<string>(10,'a');
+    cout << pstr.unique() <<endl;
+    cout << pstr.use_count() <<endl;
+
+    std::shared_ptr<string> pstr2(pstr);
+    cout << pstr.unique() <<endl;
+    cout << pstr.use_count() <<endl;
+
     return 0;
     
 }
