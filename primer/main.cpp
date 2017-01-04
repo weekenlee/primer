@@ -219,10 +219,14 @@ int main(int argc, const char * argv[]) {
         ++p;
     }
     
+    //c++ 14声明新用法
     int num14 = 123'324'230;
     int onum14 = 0b00000001;
     
+    
+    
     return 0;
+    
 }
 
 
