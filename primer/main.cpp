@@ -11,6 +11,7 @@
 #include <vector>
 #include <regex>
 #include <thread>
+#include <fstream>
 
 using std::cout;
 using std::cin;
@@ -21,6 +22,8 @@ using std::regex;
 using std::cmatch;
 using std::sregex_token_iterator;
 using std::thread;
+using std::ifstream;
+
 
 //可以处理空串
 vector<string> split_substr(string src, string pattern)
@@ -233,6 +236,22 @@ int main(int argc, const char * argv[]) {
     cout << pstr.unique() <<endl;
     cout << pstr.use_count() <<endl;
 
+    
+    cout<<"hi"<<endl;
+    cout<<"hi"<<std::ends;// mac 下没有空格，也没有刷新
+    cout<<"hi"<<std::flush;
+    cout<<"hi"<<std::ends;
+
+    
+    ifstream in("/Users/liweijian/Code/c++/primer/primer/primer/main.cpp");
+    vector<string> words;
+    if (in.is_open()) {
+        string s;
+        while (in >> s) {
+            words.push_back(s);
+        }
+    }
+    
     return 0;
     
 }
