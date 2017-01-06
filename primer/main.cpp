@@ -241,7 +241,7 @@ int main(int argc, const char * argv[]) {
     cout<<"hi"<<std::ends;// mac 下没有空格，也没有刷新
     cout<<"hi"<<std::flush;
     cout<<"hi"<<std::ends;
-
+    cout<<endl;
     
     ifstream in("/Users/liweijian/Code/c++/primer/primer/primer/main.cpp");
     vector<string> words;
@@ -252,6 +252,18 @@ int main(int argc, const char * argv[]) {
         }
     }
     
+    
+    vector<string> vc1(3,"vc1");
+    vector<string> vc2(3,"vc2");
+    vector<string>::iterator iter = vc1.begin();
+    cout<<*iter<<endl;
+    std::swap(vc1,vc2);
+    cout<<*iter<<endl;
+    cout<<*(++iter)<<endl;
+    cout<<*(++iter)<<endl;
+    cout<<*(++iter)<<endl;
+
+
     return 0;
     
 }
