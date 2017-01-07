@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <numeric>
 #include <list>
+#include <iterator>
 
 using std::cout;
 using std::cin;
@@ -217,6 +218,7 @@ int main(int argc, const char * argv[]) {
 //    int buf4[2]="hi";// error
     
     
+    //初始化vector
     const char ca[] = {'h','e','l','l','o'};
     const char c = 'e';
     char cb[] = {'a','b','c'};
@@ -226,6 +228,7 @@ int main(int argc, const char * argv[]) {
         cout<<*p<<endl;
         ++p;
     }
+    
     
     //c++ 14声明新用法
     int num14 = 123'324'230;
@@ -242,22 +245,47 @@ int main(int argc, const char * argv[]) {
     cout << pstr.use_count() <<endl;
 
     
+    //endl, ends, flush ;  ends 行为要看系统
     cout<<"hi"<<endl;
     cout<<"hi"<<std::ends;// mac 下没有空格，也没有刷新
     cout<<"hi"<<std::flush;
     cout<<"hi"<<std::ends;
     cout<<endl;
     
+    
+    //通过流>>读文件
     ifstream in("/Users/liweijian/Code/c++/primer/primer/primer/main.cpp");
     vector<string> words;
     if (in.is_open()) {
         string s;
         while (in >> s) {
+            //cout<<s;
             words.push_back(s);
         }
     }
     
+    //通过流iterator来读文件
+    ifstream fin("/Users/liweijian/Code/c++/primer/primer/primer/main.cpp");
+    std::istream_iterator<string> initer(fin);
+    vector<string> fsv;
+    std::istream_iterator<string> eof;
+    while (initer != eof) {
+        fsv.push_back(*initer++);
+    }
+    helper_print_vc(fsv);
     
+    
+    //使用流迭代器， sort， copy， 从标准输出流读取整数序列，将其排序后输出到标准输出
+    std::istream_iterator<int> stdiniter(cin), eofstdin;
+    vector<int> vnums(stdiniter,eofstdin);
+    sort(vnums.begin(), vnums.end(), [](int a, int b){ return b<a;});
+    copy(vnums.begin(), vnums.end(), std::ostream_iterator<int>(cout," "));
+    cout<<endl;
+    unique_copy(vnums.begin(), vnums.end(), std::ostream_iterator<int>(cout," ")); //只输出唯一的
+    cout<<endl;
+    
+    
+    //swap 函数
     vector<string> vc1(3,"vc1");
     vector<string> vc2(3,"vc2");
     vector<string>::iterator iter = vc1.begin();
@@ -269,13 +297,19 @@ int main(int argc, const char * argv[]) {
     cout<<*(++iter)<<endl;
 
 
-    vector<int> vint{12,3,4,5};
+    // reserve只是增加了可用空间，但元素还是0. fill是更新已有的元素值。
+    vector<int> vint;
     helper_print_vc(vint);
+    vint.reserve(10);
+    fill_n(vint.begin(), 5, 5);
+    helper_print_vc(vint);
+    vint = {1,2,3,5};
     
+    
+    //copy 函数
     list<int> lint;
-//    copy(vint.begin(), vint.end(), lint.begin()); //如果lint没有元素，调用此方法无效,需要调用back_inserter
+    copy(vint.begin(), vint.end(), lint.begin()); //如果lint没有元素，调用此方法无效,需要调用back_inserter
     copy(vint.begin(), vint.end(), back_inserter(lint));
-    
 #define PRINTLIST do{ list<int>::iterator iterlint = lint.begin();\
                   while (iterlint != lint.end()) {            \
                         cout<<*iterlint++<<endl;              \
@@ -284,6 +318,9 @@ int main(int argc, const char * argv[]) {
     PRINTLIST
     fill(lint.begin(), lint.end(), 3);
     PRINTLIST
+    
+    
+    
     return 0;
     
 }
