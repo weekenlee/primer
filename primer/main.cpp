@@ -12,6 +12,9 @@
 #include <regex>
 #include <thread>
 #include <fstream>
+#include <algorithm>
+#include <numeric>
+#include <list>
 
 using std::cout;
 using std::cin;
@@ -23,7 +26,7 @@ using std::cmatch;
 using std::sregex_token_iterator;
 using std::thread;
 using std::ifstream;
-
+using std::list;
 
 //可以处理空串
 vector<string> split_substr(string src, string pattern)
@@ -86,6 +89,8 @@ void helper_print_vc(const vector<T>& ve)
     for (typename vector<T>::const_iterator iter = ve.begin(); iter != ve.end(); iter++) {
         cout<<*iter<<endl;
     }
+    
+    cout<<endl;
 }
 
 
@@ -264,6 +269,21 @@ int main(int argc, const char * argv[]) {
     cout<<*(++iter)<<endl;
 
 
+    vector<int> vint{12,3,4,5};
+    helper_print_vc(vint);
+    
+    list<int> lint;
+//    copy(vint.begin(), vint.end(), lint.begin()); //如果lint没有元素，调用此方法无效,需要调用back_inserter
+    copy(vint.begin(), vint.end(), back_inserter(lint));
+    
+#define PRINTLIST do{ list<int>::iterator iterlint = lint.begin();\
+                  while (iterlint != lint.end()) {            \
+                        cout<<*iterlint++<<endl;              \
+                  } cout<<endl; } while (0);
+
+    PRINTLIST
+    fill(lint.begin(), lint.end(), 3);
+    PRINTLIST
     return 0;
     
 }
