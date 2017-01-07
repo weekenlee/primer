@@ -283,6 +283,12 @@ int main(int argc, const char * argv[]) {
     cout<<endl;
     unique_copy(vnums.begin(), vnums.end(), std::ostream_iterator<int>(cout," ")); //只输出唯一的
     cout<<endl;
+    vector<int>::iterator itervnums = vnums.end();
+    //使用普通迭代器，逆序输出
+    while (itervnums != vnums.begin()) {
+        cout<<*(--itervnums)<<" ";
+    }
+    cout<<endl;
     
     
     //swap 函数
