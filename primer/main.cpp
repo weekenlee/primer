@@ -30,6 +30,11 @@ using std::thread;
 using std::ifstream;
 using std::list;
 
+
+//打印智能指针
+void process(std::shared_ptr<int> ptr);
+
+
 //可以处理空串
 vector<string> split_substr(string src, string pattern)
 {
@@ -384,8 +389,32 @@ int main(int argc, const char * argv[]) {
     }
     v1.pop_back();
     
-    return 0;
     
+    
+    //智能指针
+    std::shared_ptr<int> ptr(new int(16));
+    process(ptr);
+    cout << "outside function: "<<ptr.use_count()<<endl;
+    process(std::shared_ptr<int>(ptr));
+    cout << "outside function: "<<ptr.use_count()<<endl;
+    //process(std::shared_ptr<int>(ptr.get())); //闪退
+    //cout << "outside function: "<<ptr.use_count()<<endl;
+    
+    auto pp = new int(1);
+    auto sp = std::make_shared<int>(1);
+    //process(pp);//报错
+    process(sp);
+    cout << "outside function: "<<sp.use_count()<<endl;
+    //process(new int());//报错
+    process(std::shared_ptr<int>(pp));
+
+    
+    return 0;
 }
 
+
+void process(std::shared_ptr<int> ptr)
+{
+    cout << "inside the process function : " << ptr.use_count() << endl;
+}
 
