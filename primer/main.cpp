@@ -139,10 +139,12 @@ public:
     StrBlob(std::initializer_list<std::string> il);
     size_type size() const { return data->size(); }
     bool empty() const { return data->empty(); }
-    // add and remove elements
+    
+    // 操作
     void push_back(const std::string &t) {data->push_back(t);}
-    void pop_back();
-    // element access
+    void pop_back() const;
+    
+    // 访问
     std::string& front();
     std::string& back();
 private:
@@ -161,7 +163,7 @@ void StrBlob::check(size_type i, const string &msg) const
         throw std::out_of_range(msg);
 }
 
-void StrBlob::pop_back()
+void StrBlob::pop_back() const
 {
     check(0, "pop_back on empty StrBlob");
     data->pop_back();
@@ -224,44 +226,47 @@ int main(int argc, const char * argv[]) {
     }
     cout<<endl;
     
-//    vector<int> vi;
-//    int i;
-//    while(cin>>i) {
-//        vi.push_back(i);
-//        if (0==i) {
-//            break;
-//        }
-//    }
-//    
-//    vector<string> vs;
-//    string is;
-//    while (cin>>is) {
-//        vs.push_back(is);
-//        if (is.length() == 0) {
-//            break;
-//        }
-//    }
-//    
-////    迭代器循环中修改容器长度，危险： 添加不行，删除危险，要看删除一个节点对另外节点有无影响
-////    list，map，set时删除
-////    http://mp.weixin.qq.com/s/qonNrKKZLladvIwvurQCTA
-//    for (auto it = vs.begin(); it != vs.end(); it++) {
-//        if (*it == "hi") {
-////            vs.push_back("HI");  // 发生闪退
-//            it = vs.erase(it);
-//        }
-//    }
     
+#ifdef TESTCIN
+    vector<int> vi;
+    int i;
+    while(cin>>i) {
+        vi.push_back(i);
+        if (0==i) {
+            break;
+        }
+    }
+    
+    vector<string> vs;
+    string is;
+    while (cin>>is) {
+        vs.push_back(is);
+        if (is.length() == 0) {
+            break;
+        }
+    }
+    
+//    迭代器循环中修改容器长度，危险： 添加不行，删除危险，要看删除一个节点对另外节点有无影响
+//    list，map，set时删除
+//    http://mp.weixin.qq.com/s/qonNrKKZLladvIwvurQCTA
+    for (auto it = vs.begin(); it != vs.end(); it++) {
+        if (*it == "hi") {
+            //vs.push_back("HI");  // 发生闪退
+            it = vs.erase(it);
+        }
+    }
+    
+#endif
     
     //数组声明, buf和buf2 都需要 constexpr ， 否则编译不报错，但运行异常
     constexpr unsigned buf_size = 1024;
     int buf[buf_size]; buf[0]=1;
     int buf2[bufsize()]; buf2[0]=1;
     int buf3[4*7-1];    buf3[0]=1;
-//    int buf4[2]="hi";// error
+    //int buf4[2]="hi";// error
     
     
-    //初始化vector
+    //初始化vector,通过指针，可以访问到数组之外的地址
     const char ca[] = {'h','e','l','l','o'};
     const char c = 'e';
     char cb[] = {'a','b','c'};
@@ -318,6 +323,7 @@ int main(int argc, const char * argv[]) {
     helper_print_vc(fsv);
     
     
+#ifdef TESTCIN
     //使用流迭代器， sort， copy， 从标准输出流读取整数序列，将其排序后输出到标准输出
     std::istream_iterator<int> stdiniter(cin), eofstdin;
     vector<int> vnums(stdiniter,eofstdin);
@@ -332,7 +338,7 @@ int main(int argc, const char * argv[]) {
         cout<<*(--itervnums)<<" ";
     }
     cout<<endl;
-    
+#endif
     
     //swap 函数
     vector<string> vc1(3,"vc1");
@@ -359,6 +365,7 @@ int main(int argc, const char * argv[]) {
     list<int> lint;
     copy(vint.begin(), vint.end(), lint.begin()); //如果lint没有元素，调用此方法无效,需要调用back_inserter
     copy(vint.begin(), vint.end(), back_inserter(lint));
+    
 #define PRINTLIST do{ list<int>::iterator iterlint = lint.begin();\
                   while (iterlint != lint.end()) {            \
                         cout<<*iterlint++<<endl;              \
@@ -369,12 +376,13 @@ int main(int argc, const char * argv[]) {
     PRINTLIST
     
     
-    
+    //通过指针，两个对象指向同一数据
     StrBlob v1;
     {
         StrBlob v2{"a","2","3"};
         v1 = v2;
     }
+    v1.pop_back();
     
     return 0;
     
