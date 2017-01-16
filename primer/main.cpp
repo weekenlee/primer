@@ -177,6 +177,35 @@ void StrBlob::pop_back() const
 
 
 
+//13.4
+class Point
+{
+public:
+    int T;
+public:
+    static int total;
+    Point(int t=0);
+    
+    Point(const Point&a) {T=a.T+1;  cout<<total++<<"复制构造函数"<<T<<endl;}
+    ~Point(){cout<<total++<<"析构函数"<<T<<endl;}
+    
+};
+int Point::total=1;
+Point::Point(int t):T(t){cout<<total++<<"构造函数"<<T<<endl;}
+
+
+//习题13.4
+Point global;  //默认构造函数
+
+Point foo_bar(Point arg)   //复制构造函数
+{
+    Point local = arg;     //复制构造函数
+    Point*heap =new Point(global);   //复制构造函数
+    *heap= local;
+    Point pa[ 4 ] = { local, *heap };   //复制构造函数，复制构造函数，默认构造函数，默认构造函数
+    return *heap;      //复制构造函数
+}
+
 int main(int argc, const char * argv[]) {
     
     /*
@@ -408,9 +437,29 @@ int main(int argc, const char * argv[]) {
     //process(new int());//报错
     process(std::shared_ptr<int>(pp));
 
+    auto ppp = sp.get();
+    //delete ppp;//报错，pointer being freed was not allocated
+    
+    
+    Point point(1);
+    Point point2(point);
+    foo_bar(point);
+   
+    
+    //stl算法
+    int aa[]={1,2,3,4,2,1,2};
+    vector<int> va(aa,aa+7);
+    std::sort(va.begin(), va.end());
+    std::for_each(va.begin(), va.end(), [](int a){cout<<a<<" ";});
+    cout<<"find result: "<<std::binary_search(va.begin(), va.end(), 5)<<endl;
+    cout<<"any bigger than 1: "<<std::any_of(va.begin(), va.end(), [](int a){ return a>1;})<<endl;
+    cout<<"all bigger than 1: "<<std::all_of(va.begin(), va.end(), [](int a){ return a>1;})<<endl;
+
     
     return 0;
 }
+
+
 
 
 void process(std::shared_ptr<int> ptr)
