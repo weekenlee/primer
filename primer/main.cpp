@@ -152,6 +152,12 @@ public:
     // 访问
     std::string& front();
     std::string& back();
+    
+    // 类方法
+    static void  f(StrBlob &b)
+    {
+        cout<<"类方法"<<endl;
+    }
 private:
     std::shared_ptr<std::vector<std::string>> data;
     // throws msg if data[i] isn't valid
@@ -417,6 +423,9 @@ int main(int argc, const char * argv[]) {
         v1 = v2;
     }
     v1.pop_back();
+    StrBlob::f(v1);
+    v1.f(v1);//类方法也可以通过对象调用，也可以用类调用
+    
     
     
     
