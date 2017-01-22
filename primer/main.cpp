@@ -18,6 +18,7 @@
 #include <iterator>
 #include <exception>
 
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -455,6 +456,9 @@ int main(int argc, const char * argv[]) {
     foo_bar(point);
    
     
+    std::chrono::milliseconds dura(200);
+    std::this_thread::sleep_for(dura);
+    
     //stl算法
     int aa[]={1,2,3,4,2,1,2};
     vector<int> va(aa,aa+7);
@@ -463,7 +467,8 @@ int main(int argc, const char * argv[]) {
     cout<<"find result: "<<std::binary_search(va.begin(), va.end(), 5)<<endl;
     cout<<"any bigger than 1: "<<std::any_of(va.begin(), va.end(), [](int a){ return a>1;})<<endl;
     cout<<"all bigger than 1: "<<std::all_of(va.begin(), va.end(), [](int a){ return a>1;})<<endl;
-
+    std::reverse_copy(va.begin(), va.end(), std::ostream_iterator<int>{std::cout, " "});
+    cout<<endl;
     
     return 0;
 }
