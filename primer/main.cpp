@@ -471,6 +471,15 @@ int main(int argc, const char * argv[]) {
     std::reverse_copy(va.begin(), va.end(), std::ostream_iterator<int>{std::cout, " "});
     cout<<endl;
     
+    
+    
+    string mystr = "a_b_c_d_e";
+    string::size_type pos = mystr.find_first_of("_");
+    string str1 = mystr.substr(0,pos);
+    string str2 = mystr.substr(pos+1, mystr.length());
+    string revertstr = str2+"_"+str1;
+    
+    
     return 0;
 }
 
