@@ -472,13 +472,13 @@ int main(int argc, const char * argv[]) {
     cout<<endl;
     
     
-    
-    string mystr = "a_b_c_d_e";
+    //翻转str
+    string mystr = "你阿訇_b_c_d_e";
     string::size_type pos = mystr.find_first_of("_");
     string str1 = mystr.substr(0,pos);
     string str2 = mystr.substr(pos+1, mystr.length());
     string revertstr = str2+"_"+str1;
-    
+    cout<<revertstr<<endl;
     
     return 0;
 }
