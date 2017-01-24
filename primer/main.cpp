@@ -17,7 +17,7 @@
 #include <list>
 #include <iterator>
 #include <exception>
-
+#include <chrono>
 
 using std::cout;
 using std::cin;
@@ -30,7 +30,15 @@ using std::sregex_token_iterator;
 using std::thread;
 using std::ifstream;
 using std::list;
+using namespace std::placeholders;
 
+
+
+char my_toupper(char c)
+{
+    std::locale loc;
+    return std::use_facet<std::ctype<char>>(loc).toupper(c);
+}
 
 //打印智能指针
 void process(std::shared_ptr<int> ptr);
@@ -426,9 +434,7 @@ int main(int argc, const char * argv[]) {
     v1.pop_back();
     StrBlob::f(v1);
     v1.f(v1);//类方法也可以通过对象调用，也可以用类调用
-    
-    
-    
+
     
     //智能指针
     std::shared_ptr<int> ptr(new int(16));
@@ -473,12 +479,38 @@ int main(int argc, const char * argv[]) {
     
     
     //翻转str
-    string mystr = "你阿訇_b_c_d_e";
+    std::chrono::system_clock::time_point t1 = std::chrono::system_clock::now();
+
+    string mystr = "你_b_c_d_e";
     string::size_type pos = mystr.find_first_of("_");
     string str1 = mystr.substr(0,pos);
     string str2 = mystr.substr(pos+1, mystr.length());
     string revertstr = str2+"_"+str1;
     cout<<revertstr<<endl;
+    
+    std::chrono::system_clock::time_point t2 = std::chrono::system_clock::now();
+
+    std::this_thread::sleep_for(std::chrono::microseconds(50000));
+    
+    cout << (t2-t1).count()<<" tick count"<<endl;
+    cout << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()<<" microseconds"<<endl;
+
+    
+    //bind
+    //search 容器里查找子序列，vector也可以用
+    string sss("Internationalization");
+    string sssub("Nation");
+    string::iterator ssspos;
+    ssspos =  std::search(sss.begin(), sss.end(),
+                       sssub.begin(), sssub.end(),
+                       std::bind(std::equal_to<char>(),
+                                 std::bind(my_toupper,_1),
+                                 std::bind(my_toupper,_2))
+                       );
+    if (ssspos != sss.end()) {
+        cout << "\"" << sssub << "\" is part of\"" << sss << "\""
+        << endl;
+    }
     
     return 0;
 }
