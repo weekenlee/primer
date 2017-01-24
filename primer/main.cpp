@@ -55,6 +55,7 @@ void callback(const char* str, bool ok)
 class Icallback
 {
 public:
+    //可以放一组函数
     void callbackfunc() const { cout<<"c++ interface callback happy"<<endl;}
 };
 
