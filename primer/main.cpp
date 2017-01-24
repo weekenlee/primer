@@ -34,6 +34,23 @@ using namespace std::placeholders;
 
 
 
+//callback 回调
+//c方式
+typedef void (*EventCallback)(const char* str, bool ok);
+
+void eventHappen(EventCallback callback)
+{
+    cout<<"event happen"<<endl;
+    string result="result";
+    callback(result.c_str(), true);
+}
+
+void callback(const char* str, bool ok)
+{
+    cout<<"call callback:"<<str<<endl;
+}
+
+//转换为大写
 char my_toupper(char c)
 {
     std::locale loc;
@@ -519,8 +536,14 @@ int main(int argc, const char * argv[]) {
     std::for_each(points.begin(), points.end(), std::bind(&Point::print, _1));
     std::for_each(points.begin(), points.end(), [](Point &p){p.print();});
 
+    
+    //c方式回调
+    EventCallback cbfunc = callback;
+    eventHappen(cbfunc);
+    
     return 0;
 }
+
 
 
 
