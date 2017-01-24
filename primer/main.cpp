@@ -204,6 +204,8 @@ public:
     Point(const Point&a) {T=a.T+1;  cout<<total++<<"复制构造函数"<<T<<endl;}
     ~Point(){cout<<total++<<"析构函数"<<T<<endl;}
     
+    void print() const {cout<<"Point T is: "<<T<<endl;}
+    
 };
 int Point::total=1;
 Point::Point(int t):T(t){cout<<total++<<"构造函数"<<T<<endl;}
@@ -512,6 +514,11 @@ int main(int argc, const char * argv[]) {
         << endl;
     }
     
+    
+    vector<Point> points{1,2,3};
+    std::for_each(points.begin(), points.end(), std::bind(&Point::print, _1));
+    std::for_each(points.begin(), points.end(), [](Point &p){p.print();});
+
     return 0;
 }
 
