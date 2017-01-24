@@ -50,6 +50,29 @@ void callback(const char* str, bool ok)
     cout<<"call callback:"<<str<<endl;
 }
 
+
+//回调 c++ interface 形式
+class Icallback
+{
+public:
+    void callbackfunc() const { cout<<"c++ interface callback happy"<<endl;}
+};
+
+class event
+{
+public:
+    event():pcb(new Icallback){}
+    void eventhappen() const
+    {
+        cout<<"c++ interface evnet happen"<<endl;
+        pcb->callbackfunc();
+    }
+    ~event(){delete pcb; pcb = nullptr;}
+private:
+    Icallback *pcb;
+};
+
+
 //转换为大写
 char my_toupper(char c)
 {
@@ -540,6 +563,11 @@ int main(int argc, const char * argv[]) {
     //c方式回调
     EventCallback cbfunc = callback;
     eventHappen(cbfunc);
+    
+    
+    //c++ interface方式回调
+    event e;
+    e.eventhappen();
     
     return 0;
 }
