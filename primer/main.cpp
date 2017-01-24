@@ -74,6 +74,31 @@ private:
 };
 
 
+//回调， c++ 模版形式
+template <class Class, typename ReturnType, typename Param>
+class MyCallBack {
+    
+    typedef ReturnType (Class::*Method)(Param);
+    
+    Class *pclass;
+    Method method;
+    
+public:
+    MyCallBack(Class * _class_instance, Method _method):pclass(_class_instance), method(_method)
+    {}
+    
+    ReturnType operator()(Param para)
+    {
+        return (pclass->*method)(para);
+    }
+    
+    ReturnType execute(Param para)
+    {
+        return operator()(para);
+    }
+};
+
+
 //转换为大写
 char my_toupper(char c)
 {
@@ -565,11 +590,51 @@ int main(int argc, const char * argv[]) {
     EventCallback cbfunc = callback;
     eventHappen(cbfunc);
     
-    
     //c++ interface方式回调
     event e;
     e.eventhappen();
     
+    
+    //c++ template 形式回调
+    class A
+    {
+        
+    public:
+        
+        void output()
+        {
+            std::cout << "I am class A :D" << std::endl;
+        };
+        
+    };
+    
+    class B
+    {
+        
+    public:
+        
+        bool methodB(A a)
+        {
+            std::cout << "I am class B :D" << std::endl;
+            a.output();
+            return true;
+        }
+        
+    };
+    
+    A a;
+    B b;
+    MyCallBack<B, bool, A> *mycb;
+    mycb = new MyCallBack<B,bool,A >(&b, &B::methodB);
+    if((*mycb)(a))
+    {
+        std::cout << "CallBack Fired Successfully!" << std::endl;
+    }
+    else
+    {
+        std::cout << "CallBack Fired Unsuccessfully!" << std::endl;
+    }
+
     return 0;
 }
 
