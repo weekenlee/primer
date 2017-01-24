@@ -514,7 +514,7 @@ int main(int argc, const char * argv[]) {
         << endl;
     }
     
-    
+    //bind 成员函数
     vector<Point> points{1,2,3};
     std::for_each(points.begin(), points.end(), std::bind(&Point::print, _1));
     std::for_each(points.begin(), points.end(), [](Point &p){p.print();});
