@@ -19,6 +19,8 @@
 #include <exception>
 #include <chrono>
 
+#include "ThreadRun.hpp"
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -291,6 +293,8 @@ Point foo_bar(Point arg)   //复制构造函数
 
 int main(int argc, const char * argv[]) {
     
+   
+  #ifdef TESTCIN
     /*
      * 分隔字符串， substr，find_first_of , regex 方法实现
      *
@@ -344,7 +348,7 @@ int main(int argc, const char * argv[]) {
     cout<<endl;
     
     
-#ifdef TESTCIN
+
     vector<int> vi;
     int i;
     while(cin>>i) {
@@ -373,7 +377,6 @@ int main(int argc, const char * argv[]) {
         }
     }
     
-#endif
     
     //数组声明, buf和buf2 都需要 constexpr ， 否则编译不报错，但运行异常
     constexpr unsigned buf_size = 1024;
@@ -634,6 +637,13 @@ int main(int argc, const char * argv[]) {
     {
         std::cout << "CallBack Fired Unsuccessfully!" << std::endl;
     }
+    
+#endif
+
+    
+    //模拟线程
+    ThreadRun tr;
+    tr.start();
 
     return 0;
 }

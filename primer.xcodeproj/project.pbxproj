@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD6812C01E082873008AA1FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD6812BF1E082873008AA1FB /* main.cpp */; };
+		CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCF64081E379D420080C1BB /* ThreadRun.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		CD6812BC1E082873008AA1FB /* primer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = primer; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6812BF1E082873008AA1FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CDCF64081E379D420080C1BB /* ThreadRun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadRun.cpp; sourceTree = "<group>"; };
+		CDCF64091E379D420080C1BB /* ThreadRun.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThreadRun.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				CD6812BF1E082873008AA1FB /* main.cpp */,
+				CDCF64081E379D420080C1BB /* ThreadRun.cpp */,
+				CDCF64091E379D420080C1BB /* ThreadRun.hpp */,
 			);
 			path = primer;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD6812C01E082873008AA1FB /* main.cpp in Sources */,
+				CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
