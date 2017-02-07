@@ -9,7 +9,7 @@
 #ifndef func_hpp
 #define func_hpp
 
-//functor
+//将一个函数转换为函数对象
 #define define_functor_type(func_name)                                                          \
 class tnf_##func_name {                                                                         \
 public:                                                                                         \
@@ -30,6 +30,14 @@ auto add(int a, int b)
 auto add_one(int a)
 {
     return 1+a;
+}
+
+
+//惰性求值
+template <typename F, size_t... I, typename ...Args>
+inline auto  tuple_apply_impl(const F& f, const std::index_sequence<I...>&, const std::tuple<Args...>& tp)
+{
+    
 }
 
 #endif /* func_hpp */
