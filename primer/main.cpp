@@ -20,6 +20,7 @@
 #include <chrono>
 
 #include "ThreadRun.hpp"
+#include "func.hpp"
 
 using std::cout;
 using std::cin;
@@ -34,6 +35,8 @@ using std::ifstream;
 using std::list;
 using namespace std::placeholders;
 
+
+make_global_functor(add_functor, add);
 
 
 //callback 回调
@@ -638,13 +641,17 @@ int main(int argc, const char * argv[]) {
         std::cout << "CallBack Fired Unsuccessfully!" << std::endl;
     }
     
-#endif
-
     
     //模拟线程
     ThreadRun tr;
     tr.start();
+    
+#endif
 
+    std::function<int(int,int)> f =  std::bind(add_functor, _1, _2);
+    cout<< add_functor(1,2) <<endl;
+    cout<< f(2,3) <<endl;
+    
     return 0;
 }
 
