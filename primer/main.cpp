@@ -19,6 +19,10 @@
 #include <exception>
 #include <chrono>
 
+#include "boost/version.hpp"
+#include <boost/timer.hpp>
+#include <boost/progress.hpp>
+
 #include "ThreadRun.hpp"
 #include "func.hpp"
 
@@ -295,8 +299,7 @@ Point foo_bar(Point arg)   //复制构造函数
 }
 
 int main(int argc, const char * argv[]) {
-    
-   
+  
   #ifdef TESTCIN
     /*
      * 分隔字符串， substr，find_first_of , regex 方法实现
@@ -562,12 +565,12 @@ int main(int argc, const char * argv[]) {
     string revertstr = str2+"_"+str1;
     cout<<revertstr<<endl;
     
-    std::chrono::system_clock::time_point t2 = std::chrono::system_clock::now();
+    std::chrono::system_clock::time_point tp2 = std::chrono::system_clock::now();
 
     std::this_thread::sleep_for(std::chrono::microseconds(50000));
     
-    cout << (t2-t1).count()<<" tick count"<<endl;
-    cout << std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count()<<" microseconds"<<endl;
+    cout << (tp2-t1).count()<<" tick count"<<endl;
+    cout << std::chrono::duration_cast<std::chrono::microseconds>(tp2-t1).count()<<" microseconds"<<endl;
 
     
     //bind
@@ -647,10 +650,18 @@ int main(int argc, const char * argv[]) {
     tr.start();
     
 #endif
+    boost::timer bt;
+    boost::progress_timer t2; //析构时自动输出
 
     std::function<int(int,int)> f =  std::bind(add_functor, _1, _2);
     cout<< add_functor(1,2) <<endl;
     cout<< f(2,3) <<endl;
+    
+    cout<<BOOST_VERSION<<endl;
+    
+    cout<<bt.elapsed_max()<<endl;
+    cout<<bt.elapsed_min()<<endl;
+    cout<<bt.elapsed()<<endl;
     
     return 0;
 }
