@@ -19,12 +19,11 @@
 #include <exception>
 #include <chrono>
 
-#include "boost/version.hpp"
-#include <boost/timer.hpp>
-#include <boost/progress.hpp>
+
 
 #include "ThreadRun.hpp"
 #include "func.hpp"
+#include "boostpra.hpp"
 
 using std::cout;
 using std::cin;
@@ -650,18 +649,14 @@ int main(int argc, const char * argv[]) {
     tr.start();
     
 #endif
-    boost::timer bt;
-    boost::progress_timer t2; //析构时自动输出
+    cout<<BOOST_VERSION<<endl;
 
+    
     std::function<int(int,int)> f =  std::bind(add_functor, _1, _2);
     cout<< add_functor(1,2) <<endl;
     cout<< f(2,3) <<endl;
     
-    cout<<BOOST_VERSION<<endl;
-    
-    cout<<bt.elapsed_max()<<endl;
-    cout<<bt.elapsed_min()<<endl;
-    cout<<bt.elapsed()<<endl;
+    boosttimer();
     
     return 0;
 }

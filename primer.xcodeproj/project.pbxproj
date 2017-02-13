@@ -27,6 +27,7 @@
 		CD1DED401E49E9600054485B /* func.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = func.hpp; sourceTree = "<group>"; };
 		CD6812BC1E082873008AA1FB /* primer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = primer; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6812BF1E082873008AA1FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CD9ADF4D1E51EEDD00B9D205 /* boostpra.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = boostpra.hpp; sourceTree = "<group>"; };
 		CDCF64081E379D420080C1BB /* ThreadRun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadRun.cpp; sourceTree = "<group>"; };
 		CDCF64091E379D420080C1BB /* ThreadRun.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThreadRun.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +66,7 @@
 				CDCF64081E379D420080C1BB /* ThreadRun.cpp */,
 				CDCF64091E379D420080C1BB /* ThreadRun.hpp */,
 				CD1DED401E49E9600054485B /* func.hpp */,
+				CD9ADF4D1E51EEDD00B9D205 /* boostpra.hpp */,
 			);
 			path = primer;
 			sourceTree = "<group>";
