@@ -18,6 +18,7 @@
 #include <iterator>
 #include <exception>
 #include <chrono>
+#include <stdexcept>
 
 
 
@@ -295,6 +296,19 @@ Point foo_bar(Point arg)   //复制构造函数
     *heap= local;
     Point pa[ 4 ] = { local, *heap };   //复制构造函数，复制构造函数，默认构造函数，默认构造函数
     return *heap;      //复制构造函数
+}
+
+
+
+void threadfunc_dieafter1min()
+{
+//    try {
+        std::this_thread::sleep_for(std::chrono::microseconds(50000));
+        throw std::runtime_error("a error");
+//    } catch (...) {
+//        
+//    }
+    
 }
 
 int main(int argc, const char * argv[]) {
@@ -658,8 +672,24 @@ int main(int argc, const char * argv[]) {
     
     boosttimer();
     
+
+    try {
+        std::thread t(threadfunc_dieafter1min);
+        t.join();
+
+        threadfunc_dieafter1min();
+        throw std::runtime_error("error");  //主线程异常捕获
+
+    } catch (...) {
+        
+    }
+    
+    sleep(10);
+    
     return 0;
 }
+
+
 
 
 
