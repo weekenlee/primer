@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1C47761E67081100D43A41 /* TaskQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1C47741E67081100D43A41 /* TaskQueue.cpp */; };
 		CD6812C01E082873008AA1FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD6812BF1E082873008AA1FB /* main.cpp */; };
 		CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCF64081E379D420080C1BB /* ThreadRun.cpp */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD1C47741E67081100D43A41 /* TaskQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskQueue.cpp; sourceTree = "<group>"; };
+		CD1C47751E67081100D43A41 /* TaskQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TaskQueue.hpp; sourceTree = "<group>"; };
 		CD1DED401E49E9600054485B /* func.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = func.hpp; sourceTree = "<group>"; };
 		CD6812BC1E082873008AA1FB /* primer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = primer; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6812BF1E082873008AA1FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				CDCF64091E379D420080C1BB /* ThreadRun.hpp */,
 				CD1DED401E49E9600054485B /* func.hpp */,
 				CD9ADF4D1E51EEDD00B9D205 /* boostpra.hpp */,
+				CD1C47741E67081100D43A41 /* TaskQueue.cpp */,
+				CD1C47751E67081100D43A41 /* TaskQueue.hpp */,
 			);
 			path = primer;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			files = (
 				CD6812C01E082873008AA1FB /* main.cpp in Sources */,
 				CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */,
+				CD1C47761E67081100D43A41 /* TaskQueue.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
