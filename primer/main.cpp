@@ -22,9 +22,11 @@
 
 
 
+
 #include "ThreadRun.hpp"
 #include "func.hpp"
 #include "boostpra.hpp"
+#include "TaskQueue.hpp"
 
 using std::cout;
 using std::cin;
@@ -38,6 +40,7 @@ using std::thread;
 using std::ifstream;
 using std::list;
 using namespace std::placeholders;
+using namespace lwj;
 
 
 make_global_functor(add_functor, add);
@@ -302,13 +305,37 @@ Point foo_bar(Point arg)   //复制构造函数
 
 void threadfunc_dieafter1min()
 {
-//    try {
+    try {
         std::this_thread::sleep_for(std::chrono::microseconds(50000));
         throw std::runtime_error("a error");
-//    } catch (...) {
-//        
-//    }
-    
+    } catch (...) {
+        
+    }
+
+}
+
+
+// 消费者线程函数.
+void consume(TaskQueue& queue)
+{
+    while (true) {
+        Task t = queue.popTask();
+        t.doWork();
+    }
+  
+}
+
+
+//生产者线程函数
+void produce(TaskQueue& queue)
+{
+    while (1) {
+        for (int i=0; i<10; i++) {
+            Task t;
+            queue.addTask(t);
+        }
+        std::this_thread::sleep_for(std::chrono::microseconds(500000));
+    }
 }
 
 int main(int argc, const char * argv[]) {
@@ -662,7 +689,7 @@ int main(int argc, const char * argv[]) {
     ThreadRun tr;
     tr.start();
     
-#endif
+
     cout<<BOOST_VERSION<<endl;
 
     
@@ -686,6 +713,34 @@ int main(int argc, const char * argv[]) {
     
     sleep(10);
     
+#endif
+//    单线程下
+//    TaskQueue q;
+//    for (int i=0; i<10; i++) {
+//        Task t;
+//        q.addTask(t);
+//    }
+//    
+//    while (!q.empty()) {
+//        Task t = q.popTask();
+//        t.doWork();
+//    }
+    
+    TaskQueue q;
+    
+    for (int i=0; i<10; i++) {
+        Task t;
+        q.addTask(t);
+    }
+    
+    std::thread consumer_thread(consume, std::ref(q));
+    consumer_thread.join();
+    
+
+    
+    std::thread produce_thread(produce, std::ref(q));
+    produce_thread.join();
+   
     return 0;
 }
 
