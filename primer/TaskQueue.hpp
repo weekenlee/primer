@@ -29,7 +29,10 @@ private:
     string taskname_;
     
 public:
-    Task():taskname_{std::to_string(index_)}{index_++;}
+    Task():taskname_(std::to_string(index_))
+    {
+        cout<<"add job "<<index_++<<endl;
+    }
     ~Task(){}
     void doWork()
     {
@@ -39,6 +42,8 @@ public:
         cout<<"thread "<<taskname_<<" end"<<endl;
 
     }
+    
+    string getname() {return taskname_;}
 };
 
 int Task::index_ = 0;
@@ -46,44 +51,52 @@ int Task::index_ = 0;
 class TaskQueue {
     queue<Task> queue_;
     mutex mtx_;
-    condition_variable cv_;
+    condition_variable cv_full_;
+    condition_variable cv_empty_;
     
 public:
-    TaskQueue():queue_(),mtx_(),cv_(){}
+    TaskQueue():queue_(),mtx_(),cv_full_(),cv_empty_(){}
     ~TaskQueue(){}
     
     void addTask(const Task& task);
     Task popTask();
     
     bool empty() {
-        std::unique_lock<std::mutex> lck (mtx_); //上锁
         return queue_.empty();
+    }
+    
+    bool full() {
+        return queue_.size() == 5;
     }
 };
 
 void TaskQueue::addTask(const Task &task)
 {
     std::unique_lock<std::mutex> lock (mtx_); //上锁
+    while (full()) {
+        cout<<"full..wait..."<<endl;
+        cv_full_.wait(lock);
+    }
+    
     queue_.push(task);
-    cv_.notify_all();
-    lock.unlock();
+    cv_empty_.notify_all();
 }
 
 Task TaskQueue::popTask()
 {
     std::unique_lock<std::mutex> lock (mtx_); //上锁
     while(queue_.empty()) {
-        cv_.wait(lock);
+        cout<<"empty..wait..."<<endl;
+        cv_empty_.wait(lock);
     }
     
     Task task = queue_.front();
     queue_.pop();
-    lock.unlock();
+    cout<<"take job "<< task.getname()<<" to work"<<endl;
+    cv_full_.notify_all();
     return task;
 }
-    
-    
- 
+
 
 }
 

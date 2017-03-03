@@ -334,7 +334,6 @@ void produce(TaskQueue& queue)
             Task t;
             queue.addTask(t);
         }
-        std::this_thread::sleep_for(std::chrono::microseconds(500000));
     }
 }
 
@@ -727,20 +726,18 @@ int main(int argc, const char * argv[]) {
 //    }
     
     TaskQueue q;
-    
+
     for (int i=0; i<10; i++) {
-        Task t;
-        q.addTask(t);
+        std::thread consumer_thread(consume, std::ref(q));
+        consumer_thread.detach();
     }
     
-    std::thread consumer_thread(consume, std::ref(q));
-    consumer_thread.join();
-    
+    for (int i=0; i<5; i++) {
+        std::thread produce_thread(produce, std::ref(q));
+        produce_thread.join();
+    }
 
-    
-    std::thread produce_thread(produce, std::ref(q));
-    produce_thread.join();
-   
+
     return 0;
 }
 
