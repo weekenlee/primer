@@ -22,6 +22,9 @@ using std::cout;
 using std::endl;
 
 namespace lwj {
+    
+    class ThreadGrard {};
+    
  
 class Task {
 private:
@@ -52,11 +55,11 @@ int Task::index_ = 0;
 class TaskQueue {
     queue<Task> queue_;
     mutex mtx_;
-    condition_variable cv_full_;
-    condition_variable cv_empty_;
+    condition_variable cv_notfull_;
+    condition_variable cv_notempty_;
     
 public:
-    TaskQueue():queue_(),mtx_(),cv_full_(),cv_empty_(){}
+    TaskQueue():queue_(),mtx_(),cv_notfull_(),cv_notempty_(){}
     ~TaskQueue(){}
     
     void addTask(const Task& task);
@@ -76,11 +79,11 @@ void TaskQueue::addTask(const Task &task)
     std::unique_lock<std::mutex> lock (mtx_); //上锁
     while (full()) {
         cout<<"full..wait..."<<endl;
-        cv_full_.wait(lock);
+        cv_notfull_.wait(lock);
     }
     
     queue_.push(task);
-    cv_empty_.notify_all();
+    cv_notempty_.notify_all();
 }
 
 Task TaskQueue::popTask()
@@ -88,13 +91,13 @@ Task TaskQueue::popTask()
     std::unique_lock<std::mutex> lock (mtx_); //上锁
     while(queue_.empty()) {
         cout<<"empty..wait..."<<endl;
-        cv_empty_.wait(lock);
+        cv_notempty_.wait(lock);
     }
     
     Task task = queue_.front();
     queue_.pop();
     cout<<"take job "<< task.getname()<<" to work"<<endl;
-    cv_full_.notify_all();
+    cv_notfull_.notify_all();
     return task;
 }
 

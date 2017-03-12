@@ -712,7 +712,7 @@ int main(int argc, const char * argv[]) {
     
     sleep(10);
     
-#endif
+
 //    单线程下
 //    TaskQueue q;
 //    for (int i=0; i<10; i++) {
@@ -737,7 +737,11 @@ int main(int argc, const char * argv[]) {
         produce_thread.join();
     }
 
-
+#endif
+    auto start = std::chrono::high_resolution_clock::now();
+    sleep(10);
+    auto end = std::chrono::high_resolution_clock::now();
+    cout << std::chrono::duration_cast<std::chrono::seconds>(end - start).count() << ":";
     return 0;
 }
 
