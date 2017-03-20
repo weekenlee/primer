@@ -737,12 +737,22 @@ int main(int argc, const char * argv[]) {
         produce_thread.join();
     }
 
-#endif
+
     auto start = std::chrono::high_resolution_clock::now();
     sleep(10);
     auto end = std::chrono::high_resolution_clock::now();
     cout << std::chrono::duration_cast<std::chrono::seconds>(end - start).count() << ":";
     return 0;
+    
+#endif
+
+    std::vector<int> vectora{1,2,3,4,54};
+    int sum = std::accumulate(vectora.cbegin(), vectora.cend(), 0);
+    cout<<sum<<endl;
+    
+    std::vector<double> vectorb{1.1,2.2,3.0,4.8,54.5};
+    double sumb = std::accumulate(vectorb.cbegin(), vectorb.cend(), 0);  //accumulate 第三个参数决定返回值类型，0返回64，否则返回正确浮点数
+    cout<<sumb<<endl;
 }
 
 
