@@ -758,7 +758,12 @@ int main(int argc, const char * argv[]) {
     std::vector<const char*> vectord{"abc","e4g"};
     cout<<std::equal(vectorc.cbegin(), vectorc.cend(), vectord.cbegin())<<endl;
     
-    
+    std::vector<int> vectore{1,2,3};
+    std::fill_n(vectore.begin(), 2, 5);
+    helper_print_vc(vectore);
+    auto bi = std::back_inserter(vectore);
+    *bi = 19;
+    helper_print_vc(vectore);
 }
 
 
