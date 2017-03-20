@@ -753,6 +753,12 @@ int main(int argc, const char * argv[]) {
     std::vector<double> vectorb{1.1,2.2,3.0,4.8,54.5};
     double sumb = std::accumulate(vectorb.cbegin(), vectorb.cend(), 0);  //accumulate 第三个参数决定返回值类型，0返回64，否则返回正确浮点数
     cout<<sumb<<endl;
+    
+    std::vector<const char*> vectorc{"abc","efg"};
+    std::vector<const char*> vectord{"abc","e4g"};
+    cout<<std::equal(vectorc.cbegin(), vectorc.cend(), vectord.cbegin())<<endl;
+    
+    
 }
 
 

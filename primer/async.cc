@@ -23,19 +23,19 @@ void sub_wait_get(std::future<int> &fut)
     return;
 }
 
-int main()
-{
-    std::promise<int> pro;
-    std::future<int> fut = pro.get_future();
-    std::thread t(sub_wait_get, std::ref(fut));
-
-    std::future<int> result = std::async(std::launch::async,do_some_job);
-    std::chrono::milliseconds span(10);
-    while (result.wait_for(span) == std::future_status::timeout)
-         std::cout << '.' <<flush;
-    cout<<endl<<flush;
-    pro.set_value(result.get());
-    t.join();
-
-    return 0;
-}
+//int main()
+//{
+//    std::promise<int> pro;
+//    std::future<int> fut = pro.get_future();
+//    std::thread t(sub_wait_get, std::ref(fut));
+//
+//    std::future<int> result = std::async(std::launch::async,do_some_job);
+//    std::chrono::milliseconds span(10);
+//    while (result.wait_for(span) == std::future_status::timeout)
+//         std::cout << '.' <<flush;
+//    cout<<endl<<flush;
+//    pro.set_value(result.get());
+//    t.join();
+//
+//    return 0;
+//}
