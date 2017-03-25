@@ -188,6 +188,20 @@ void helper_print_vc(const vector<T>& ve)
 }
 
 
+template <typename T>
+void helper_print(const T &ve)
+{
+    cout<<"call "<<__func__<<endl;
+    
+    for (auto const &a : ve) {
+        cout<<a<<" ";
+    }
+    
+    cout<<endl;
+}
+
+
+
 //函数线程任务
 int count = 0;      //共享资源
 std::mutex mtx;     //共享锁
@@ -336,6 +350,17 @@ void produce(TaskQueue& queue)
         }
     }
 }
+
+
+//删除重复项目
+void elimDumps(vector<string> &words)
+{
+    sort(words.begin(), words.end());
+    auto end_unique = std::unique(words.begin(), words.end());
+    words.erase(end_unique, words.end());
+}
+
+
 
 int main(int argc, const char * argv[]) {
   
@@ -744,8 +769,6 @@ int main(int argc, const char * argv[]) {
     cout << std::chrono::duration_cast<std::chrono::seconds>(end - start).count() << ":";
     return 0;
     
-#endif
-
     std::vector<int> vectora{1,2,3,4,54};
     int sum = std::accumulate(vectora.cbegin(), vectora.cend(), 0);
     cout<<sum<<endl;
@@ -764,9 +787,35 @@ int main(int argc, const char * argv[]) {
     auto bi = std::back_inserter(vectore);
     *bi = 19;
     helper_print_vc(vectore);
+    
+    //10.7 a
+    vector<int> vecint;
+    list<int> listint;
+    int input;
+    while (cin>>input) {
+        listint.push_back(input);
+    }
+    vecint.resize(listint.size());// 若无此句，无法正确
+    copy(listint.cbegin(), listint.cend(), vecint.begin());
+    helper_print_vc(vecint);
+
+
+    //10.7 b
+    vector<int> vec;
+    vec.reserve(10); //分配空间，未初始化
+    vec.resize(10);  //分配空间，并创建对象，改变容器大小
+    std::fill_n(vec.begin(), 10, 0);
+    helper_print_vc(vec);
+   
+#endif
+    
+    vector<string> vc{"a","b","e","c","c"};
+    std::stable_sort(vc.begin(), vc.end());//不改变次序
+    helper_print(vc);
+    elimDumps(vc);
+    helper_print(vc);
+    
 }
-
-
 
 
 
