@@ -19,8 +19,9 @@
 #include <exception>
 #include <chrono>
 #include <stdexcept>
-
-
+#include <map>
+#include <unordered_map>
+#include <cassert>
 
 
 #include "ThreadRun.hpp"
@@ -807,7 +808,6 @@ int main(int argc, const char * argv[]) {
     std::fill_n(vec.begin(), 10, 0);
     helper_print_vc(vec);
    
-#endif
     
     vector<string> vc{"a","b","e","c","c"};
     std::stable_sort(vc.begin(), vc.end());//不改变次序
@@ -815,6 +815,33 @@ int main(int argc, const char * argv[]) {
     elimDumps(vc);
     helper_print(vc);
     
+#endif
+
+    std::map<string, int> m{{"a",2},{"c",3}};
+    auto i = m.begin();
+    while (i != m.end()) {
+        cout<<i->first<<" "<<i->second<<endl;
+        i++;
+    }
+    
+    
+    std::unordered_map<string, int> m2{{"a",3},{"b",4}};
+    m2["c"] = 2;
+    m2["a"] = 999;
+    std::pair<std::string, int> p;
+    p = {"e", 2};
+    m2.insert(p);
+    auto i2 = m2.begin();
+    while (i2 != m2.end()) {
+        cout<<i2->first<<" "<<i2->second<<endl;
+        i2++;
+    }
+
+    cout<<m2.find("a")->first<<endl;
+    cout<<m2.find(p.first)->first<<endl;
+    m2.erase(m2.find(p.first));
+    auto result =  m2.find(p.first);
+    assert(result == m2.end());
 }
 
 
