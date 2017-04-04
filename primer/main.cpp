@@ -855,13 +855,24 @@ int main(int argc, const char * argv[]) {
 #endif
     
     using Map = std::map<std::string, std::size_t>;
+    using KeyType = std::map<std::string, std::size_t>::key_type;
+
     Map m;
     for (string word; cin>>word&&word!="q";) {
         ++m[word];
     }
     for (auto const& kv : m) {
         cout << kv.first << " : " << kv.second << "\n";
+        cout<<typeid(decltype(kv)).name()<<endl;
+        cout<<typeid(decltype(kv.first)).name()<<endl;
+        cout<<typeid(decltype(kv.second)).name()<<endl;
+        cout<<(typeid(decltype(kv.second))==typeid(std::size_t))<<endl;
+        cout<<(typeid(decltype(kv.first))==typeid(string))<<endl;
+        cout<<(typeid(decltype(kv.first))==typeid(char))<<endl; //不相等
     }
+    cout<<typeid(KeyType).name()<<endl;
+
+    
 }
 
 
