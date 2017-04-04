@@ -815,7 +815,7 @@ int main(int argc, const char * argv[]) {
     elimDumps(vc);
     helper_print(vc);
     
-#endif
+
 
     std::map<string, int> m{{"a",2},{"c",3}};
     auto i = m.begin();
@@ -842,6 +842,14 @@ int main(int argc, const char * argv[]) {
     m2.erase(m2.find(p.first));
     auto result =  m2.find(p.first);
     assert(result == m2.end());
+    
+#endif
+    std::vector<std::string> exclude = { "aa", "bb", "cc", "dd", "ee", "ff" };
+    for (string word; cout<<"Enter plz:\n", cin>>word&&word != "q"; ) {
+        auto is_excluded = std::binary_search(exclude.begin(), exclude.end(), word);
+        auto reply = is_excluded ? "excluded" : "not excluded";
+        std::cout << reply << std::endl;
+    }
 }
 
 
