@@ -843,12 +843,24 @@ int main(int argc, const char * argv[]) {
     auto result =  m2.find(p.first);
     assert(result == m2.end());
     
-#endif
+    
+    
     std::vector<std::string> exclude = { "aa", "bb", "cc", "dd", "ee", "ff" };
     for (string word; cout<<"Enter plz:\n", cin>>word&&word != "q"; ) {
         auto is_excluded = std::binary_search(exclude.begin(), exclude.end(), word);
         auto reply = is_excluded ? "excluded" : "not excluded";
         std::cout << reply << std::endl;
+    }
+    
+#endif
+    
+    using Map = std::map<std::string, std::size_t>;
+    Map m;
+    for (string word; cin>>word&&word!="q";) {
+        ++m[word];
+    }
+    for (auto const& kv : m) {
+        cout << kv.first << " : " << kv.second << "\n";
     }
 }
 
