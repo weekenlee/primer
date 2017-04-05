@@ -23,7 +23,7 @@
 #include <unordered_map>
 #include <cassert>
 
-
+#include "StrBlob.hpp"
 #include "ThreadRun.hpp"
 #include "func.hpp"
 #include "boostpra.hpp"
@@ -238,49 +238,49 @@ constexpr int bufsize()
 
 
 
-class StrBlob
-{
-public:
-    typedef std::vector<std::string>::size_type size_type;
-    StrBlob();
-    StrBlob(std::initializer_list<std::string> il);
-    size_type size() const { return data->size(); }
-    bool empty() const { return data->empty(); }
-    
-    // 操作
-    void push_back(const std::string &t) {data->push_back(t);}
-    void pop_back() const;
-    
-    // 访问
-    std::string& front();
-    std::string& back();
-    
-    // 类方法
-    static void  f(StrBlob &b)
-    {
-        cout<<"类方法"<<endl;
-    }
-private:
-    std::shared_ptr<std::vector<std::string>> data;
-    // throws msg if data[i] isn't valid
-    void check(size_type i, const std::string &msg) const;
-};
-
-StrBlob::StrBlob(): data(std::make_shared<vector<string>>()) { }
-StrBlob::StrBlob(std::initializer_list<string> il):
-data(std::make_shared<vector<string>>(il)) { }
-
-void StrBlob::check(size_type i, const string &msg) const
-{
-    if (i >= data->size())
-        throw std::out_of_range(msg);
-}
-
-void StrBlob::pop_back() const
-{
-    check(0, "pop_back on empty StrBlob");
-    data->pop_back();
-}
+//class StrBlob
+//{
+//public:
+//    typedef std::vector<std::string>::size_type size_type;
+//    StrBlob();
+//    StrBlob(std::initializer_list<std::string> il);
+//    size_type size() const { return data->size(); }
+//    bool empty() const { return data->empty(); }
+//    
+//    // 操作
+//    void push_back(const std::string &t) {data->push_back(t);}
+//    void pop_back() const;
+//    
+//    // 访问
+//    std::string& front();
+//    std::string& back();
+//    
+//    // 类方法
+//    static void  f(StrBlob &b)
+//    {
+//        cout<<"类方法"<<endl;
+//    }
+//private:
+//    std::shared_ptr<std::vector<std::string>> data;
+//    // throws msg if data[i] isn't valid
+//    void check(size_type i, const std::string &msg) const;
+//};
+//
+//StrBlob::StrBlob(): data(std::make_shared<vector<string>>()) { }
+//StrBlob::StrBlob(std::initializer_list<string> il):
+//data(std::make_shared<vector<string>>(il)) { }
+//
+//void StrBlob::check(size_type i, const string &msg) const
+//{
+//    if (i >= data->size())
+//        throw std::out_of_range(msg);
+//}
+//
+//void StrBlob::pop_back() const
+//{
+//    check(0, "pop_back on empty StrBlob");
+//    data->pop_back();
+//}
 
 
 
