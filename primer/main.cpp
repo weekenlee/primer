@@ -22,6 +22,8 @@
 #include <map>
 #include <unordered_map>
 #include <cassert>
+#include <bitset>
+//#include <cstdlib>
 
 #include "StrBlob.hpp"
 #include "ThreadRun.hpp"
@@ -826,12 +828,30 @@ int main(int argc, const char * argv[]) {
     }
     cout<<typeid(KeyType).name()<<endl;
 
-#endif
     
     StrBlob str{"a","b","c"};
     cout<<str.back()<<endl;
     str.back() = "d";
     cout<<str.back()<<endl;
+    
+#endif
+
+    int i = 1<<2 | 1<<3;
+    cout<<i<<endl;
+    cout<<std::bitset<8>(i)<<endl;
+    cout<<std::hex<<i<<endl;
+    cout<<std::oct<<i<<endl;
+    
+    char binary_text[100];
+//    itoa(i, binary_text, 2);  只有windows有这个函数
+    sprintf(binary_text, "%x",i);
+    printf("二进制 %s\n", binary_text);
+
+    cout<<std::to_string(i)<<endl;
+    
+    string s = std::bitset<8>(i).to_string();
+    cout<<s<<endl;
+
 }
 
 
