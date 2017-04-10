@@ -49,6 +49,10 @@ using namespace lwj;
 
 make_global_functor(add_functor, add);
 
+constexpr int testTemplateBinary()
+{
+    return 10;
+}
 
 //callback 回调
 //c方式
@@ -853,7 +857,8 @@ int main(int argc, const char * argv[]) {
     cout<<s<<endl;
 #endif
    
-    cout<<Binary<110>::value<<endl;
+    constexpr unsigned long A = 5+5+testTemplateBinary();
+    cout<<Binary<A>::value<<endl;
     cout<<binary(110)<<endl;
 }
 
