@@ -30,6 +30,7 @@
 #include "func.hpp"
 #include "boostpra.hpp"
 #include "TaskQueue.hpp"
+#include "Binary.hpp"
 
 using std::cout;
 using std::cin;
@@ -834,7 +835,6 @@ int main(int argc, const char * argv[]) {
     str.back() = "d";
     cout<<str.back()<<endl;
     
-#endif
 
     int i = 1<<2 | 1<<3;
     cout<<i<<endl;
@@ -851,7 +851,10 @@ int main(int argc, const char * argv[]) {
     
     string s = std::bitset<8>(i).to_string();
     cout<<s<<endl;
-
+#endif
+   
+    cout<<Binary<110>::value<<endl;
+    cout<<binary(110)<<endl;
 }
 
 

@@ -32,6 +32,7 @@
 		CD6812BF1E082873008AA1FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CD9ADF4D1E51EEDD00B9D205 /* boostpra.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = boostpra.hpp; sourceTree = "<group>"; };
 		CDBB3F071E7F979E00D3087A /* async.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = async.cc; sourceTree = "<group>"; };
+		CDC7F3BF1E9BD03A0073222F /* Binary.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Binary.hpp; sourceTree = "<group>"; };
 		CDCF64081E379D420080C1BB /* ThreadRun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadRun.cpp; sourceTree = "<group>"; };
 		CDCF64091E379D420080C1BB /* ThreadRun.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThreadRun.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +75,7 @@
 				CD9ADF4D1E51EEDD00B9D205 /* boostpra.hpp */,
 				CD1C47751E67081100D43A41 /* TaskQueue.hpp */,
 				CD2401891E951CB000430EB6 /* StrBlob.hpp */,
+				CDC7F3BF1E9BD03A0073222F /* Binary.hpp */,
 			);
 			path = primer;
 			sourceTree = "<group>";
