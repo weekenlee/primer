@@ -23,7 +23,7 @@
 #include <unordered_map>
 #include <cassert>
 #include <bitset>
-//#include <cstdlib>
+
 
 #include "StrBlob.hpp"
 #include "ThreadRun.hpp"
@@ -31,6 +31,7 @@
 #include "boostpra.hpp"
 #include "TaskQueue.hpp"
 #include "Binary.hpp"
+#include "templateTest.hpp"
 
 using std::cout;
 using std::cin;
@@ -860,6 +861,16 @@ int main(int argc, const char * argv[]) {
     constexpr unsigned long A = 5+5+testTemplateBinary();
     cout<<Binary<A>::value<<endl;
     cout<<binary(110)<<endl;
+    
+    cout<<TraitsHelper<int>::isPointer<<endl;
+    cout<<TraitsHelper<int*>::isPointer<<endl;
+    
+    TestTemplate<int> a;
+    a.func();
+    
+    TestTemplate<int*> apoint;
+    apoint.func();
+
 }
 
 
