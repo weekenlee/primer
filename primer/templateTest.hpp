@@ -38,4 +38,29 @@ public:
     }
 };
 
+
+template <typename T>
+struct TraitsHelper2 {
+    typedef T ret_type;
+    typedef T par_type;
+};
+template <>
+struct TraitsHelper2<int> {
+    typedef int ret_type;
+    typedef int par_type;
+};
+template <>
+struct TraitsHelper2<float> {
+    typedef float ret_type;
+    typedef int par_type;
+};
+
+template <typename T>
+class Test {
+public:
+    typename TraitsHelper2<T>::ret_type Compute(typename TraitsHelper2<T>::par_type d);
+private:
+    T mData;
+};
+
 #endif /* templateTest_hpp */
