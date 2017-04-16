@@ -23,6 +23,7 @@
 #include <unordered_map>
 #include <cassert>
 #include <bitset>
+#include <array>
 
 
 #include "StrBlob.hpp"
@@ -32,6 +33,8 @@
 #include "TaskQueue.hpp"
 #include "Binary.hpp"
 #include "templateTest.hpp"
+
+#include "easylogging++.h"
 
 using std::cout;
 using std::cin;
@@ -47,6 +50,8 @@ using std::list;
 using namespace std::placeholders;
 using namespace lwj;
 
+
+INITIALIZE_EASYLOGGINGPP
 
 make_global_functor(add_functor, add);
 
@@ -216,13 +221,14 @@ int count = 0;      //共享资源
 std::mutex mtx;     //共享锁
 
 void thread_task() {
-    cout << "call func from thread:"<< std::this_thread::get_id() << endl;
-
     std::unique_lock<std::mutex> lck (mtx); //上锁
 
-    for (int i=0; i<100; i++) {
-        cout<<count++<<endl;
-    }
+    LOG(INFO) << "call func at thread:"<< std::this_thread::get_id();
+    sleep(1);
+
+//    for (int i=0; i<100; i++) {
+//        cout<<count++<<endl;
+//    }
 }
 
 class threadTask {
@@ -856,7 +862,6 @@ int main(int argc, const char * argv[]) {
     
     string s = std::bitset<8>(i).to_string();
     cout<<s<<endl;
-#endif
    
     constexpr unsigned long A = 5+5+testTemplateBinary();
     cout<<Binary<A>::value<<endl;
@@ -870,6 +875,28 @@ int main(int argc, const char * argv[]) {
     
     TestTemplate<int*> apoint;
     apoint.func();
+    
+#endif
+    LOG(INFO) << "hello";
+
+    std::array<thread,3> threads = {thread(thread_task),thread(thread_task),thread(thread_task)};
+    for(int i=0 ;i < 3;i++) {
+       threads[i].join();
+    }
+    
+    
+    vector<thread> threadv;
+//    threadv[0] = thread(thread_task);
+//    threadv[1] = thread(thread_task);
+    threadv.emplace_back(thread_task);
+    threadv.emplace_back(thread_task);
+
+    for (auto &t : threadv) {
+        if(t.joinable())
+            t.join();
+    }
+    
+
 
 }
 
