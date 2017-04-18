@@ -63,4 +63,34 @@ private:
     T mData;
 };
 
+
+//模版函数
+template <typename T> T TAdd(T a, T b)
+{
+    return a + b;
+}
+
+//转换为某类型
+float TGetValuedata[1024]={1,1,1};
+template <typename T> T TGetValue(int i)
+{
+    return static_cast<T>(TGetValuedata[i]);
+}
+
+
+template<typename tStringType, typename tTraits = typename tStringType::traits_type>
+void print_code_unit_sequence(tStringType str)
+{
+    using char_type = typename tTraits::char_type;
+    static_assert(std::is_same<char_type, char>::value || std::is_same<char_type, char16_t>::value || std::is_same<char_type, char32_t>::value, "error");
+    using unsigned_char_type = typename std::make_unsigned<char_type>::type;
+    using unsigned_int_type = typename std::make_unsigned<typename tTraits::int_type>::type;
+    int w = std::is_same<char, char_type>::value ? 2 : std::is_same<char16_t, char_type>::value ? 4 : 8;
+    for(auto c : str) {
+        auto value = static_cast<unsigned_int_type>(static_cast<unsigned_char_type>(c));
+        std::cout << "0x" << std::hex << std::uppercase << std::setw(w) << std::setfill('0') << value << ' ';
+    }
+}
+
+
 #endif /* templateTest_hpp */

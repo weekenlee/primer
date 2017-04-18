@@ -24,7 +24,9 @@
 #include <cassert>
 #include <bitset>
 #include <array>
-
+#include <iomanip>
+#include<locale>
+#include<codecvt>
 
 #include "StrBlob.hpp"
 #include "ThreadRun.hpp"
@@ -876,7 +878,7 @@ int main(int argc, const char * argv[]) {
     TestTemplate<int*> apoint;
     apoint.func();
     
-#endif
+//#endif
     LOG(INFO) << "hello";
 
     std::array<thread,3> threads = {thread(thread_task),thread(thread_task),thread(thread_task)};
@@ -895,9 +897,33 @@ int main(int argc, const char * argv[]) {
         if(t.joinable())
             t.join();
     }
+//#endif
+
+    cout<<TAdd(1,2)<<endl;
+    cout<<TAdd(1.0,2.0)<<endl;
+    cout.setf(std::ios::fixed);
+    cout<<std::setprecision(2)<<TGetValue<float>(1)<<endl;
+    cout<<std::setprecision(2)<<TGetValue<int>(1)<<endl;
     
+#endif
+    std::string u8_source_str = u8"中文"; // utf-8
+    std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> cvt;
+    std::u16string u16_cvt_str = cvt.from_bytes(u8_source_str); // utf-8 to utf-16
+    std::string u8_cvt_str = cvt.to_bytes(u16_cvt_str); // utf-16 to utf-8
+    std::cout << "u8_source_str = ";
+    print_code_unit_sequence(u8_source_str);
+    std::cout << std::endl;
+    std::cout << "u16_cvt_str = ";
+    print_code_unit_sequence(u16_cvt_str);
+    std::cout << std::endl;
+    std::cout << "u8_cvt_str = ";
+    print_code_unit_sequence(u8_cvt_str);
+    std::cout << std::endl;
+    cout<<u8_source_str<<endl;
+    cout<<u8_cvt_str<<endl;
 
 
+    
 }
 
 
