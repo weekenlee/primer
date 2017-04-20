@@ -5,14 +5,13 @@
 #include "poller.h"
 #include "conn.h"
 
-#define OS_MACOSX
 
 #ifdef OS_LINUX
 #include <sys/epoll.h>
 #elif defined(OS_MACOSX)
 #include <sys/event.h>
 #else
-#error "platform unsupported"
+//#error "platform unsupported"
 #endif
 
 

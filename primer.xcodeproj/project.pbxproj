@@ -8,21 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD0EC2A21EA363BD00A2BD0A /* easylogging++.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC2A01EA363BD00A2BD0A /* easylogging++.cc */; };
-		CD2ECEBD1EA8A05200FA5F41 /* codec.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE661EA8A05200FA5F41 /* codec.cc */; };
-		CD2ECEBE1EA8A05200FA5F41 /* conf.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE681EA8A05200FA5F41 /* conf.cc */; };
-		CD2ECEBF1EA8A05200FA5F41 /* conn.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE6A1EA8A05200FA5F41 /* conn.cc */; };
-		CD2ECEC01EA8A05200FA5F41 /* daemon.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE6C1EA8A05200FA5F41 /* daemon.cc */; };
-		CD2ECEC11EA8A05200FA5F41 /* event_base.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE6E1EA8A05200FA5F41 /* event_base.cc */; };
-		CD2ECEC21EA8A05200FA5F41 /* file.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE701EA8A05200FA5F41 /* file.cc */; };
-		CD2ECEC31EA8A05200FA5F41 /* http.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE741EA8A05200FA5F41 /* http.cc */; };
-		CD2ECEC41EA8A05200FA5F41 /* logging.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE761EA8A05200FA5F41 /* logging.cc */; };
-		CD2ECEC51EA8A05200FA5F41 /* net.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE781EA8A05200FA5F41 /* net.cc */; };
-		CD2ECEC61EA8A05200FA5F41 /* poller.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE7A1EA8A05200FA5F41 /* poller.cc */; };
-		CD2ECEC71EA8A05200FA5F41 /* port_posix.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE7C1EA8A05200FA5F41 /* port_posix.cc */; };
-		CD2ECEC81EA8A05200FA5F41 /* stat-svr.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE7F1EA8A05200FA5F41 /* stat-svr.cc */; };
-		CD2ECEC91EA8A05200FA5F41 /* threads.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE821EA8A05200FA5F41 /* threads.cc */; };
-		CD2ECECA1EA8A05200FA5F41 /* udp.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE841EA8A05200FA5F41 /* udp.cc */; };
-		CD2ECECB1EA8A05200FA5F41 /* util.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECE861EA8A05200FA5F41 /* util.cc */; };
+		CD2ECEDF1EA9080B00FA5F41 /* util.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECEDD1EA9080B00FA5F41 /* util.cc */; };
 		CD6812C01E082873008AA1FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD6812BF1E082873008AA1FB /* main.cpp */; };
 		CDBB3F081E7F979E00D3087A /* async.cc in Sources */ = {isa = PBXBuildFile; fileRef = CDBB3F071E7F979E00D3087A /* async.cc */; };
 		CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCF64081E379D420080C1BB /* ThreadRun.cpp */; };
@@ -46,40 +32,8 @@
 		CD1C47751E67081100D43A41 /* TaskQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TaskQueue.hpp; sourceTree = "<group>"; };
 		CD1DED401E49E9600054485B /* func.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = func.hpp; sourceTree = "<group>"; };
 		CD2401891E951CB000430EB6 /* StrBlob.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StrBlob.hpp; sourceTree = "<group>"; };
-		CD2ECE661EA8A05200FA5F41 /* codec.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = codec.cc; sourceTree = "<group>"; };
-		CD2ECE671EA8A05200FA5F41 /* codec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codec.h; sourceTree = "<group>"; };
-		CD2ECE681EA8A05200FA5F41 /* conf.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conf.cc; sourceTree = "<group>"; };
-		CD2ECE691EA8A05200FA5F41 /* conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
-		CD2ECE6A1EA8A05200FA5F41 /* conn.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conn.cc; sourceTree = "<group>"; };
-		CD2ECE6B1EA8A05200FA5F41 /* conn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conn.h; sourceTree = "<group>"; };
-		CD2ECE6C1EA8A05200FA5F41 /* daemon.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = daemon.cc; sourceTree = "<group>"; };
-		CD2ECE6D1EA8A05200FA5F41 /* daemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = daemon.h; sourceTree = "<group>"; };
-		CD2ECE6E1EA8A05200FA5F41 /* event_base.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = event_base.cc; sourceTree = "<group>"; };
-		CD2ECE6F1EA8A05200FA5F41 /* event_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_base.h; sourceTree = "<group>"; };
-		CD2ECE701EA8A05200FA5F41 /* file.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = file.cc; sourceTree = "<group>"; };
-		CD2ECE711EA8A05200FA5F41 /* file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file.h; sourceTree = "<group>"; };
-		CD2ECE721EA8A05200FA5F41 /* handy-imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "handy-imp.h"; sourceTree = "<group>"; };
-		CD2ECE731EA8A05200FA5F41 /* handy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handy.h; sourceTree = "<group>"; };
-		CD2ECE741EA8A05200FA5F41 /* http.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http.cc; sourceTree = "<group>"; };
-		CD2ECE751EA8A05200FA5F41 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
-		CD2ECE761EA8A05200FA5F41 /* logging.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = logging.cc; sourceTree = "<group>"; };
-		CD2ECE771EA8A05200FA5F41 /* logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging.h; sourceTree = "<group>"; };
-		CD2ECE781EA8A05200FA5F41 /* net.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net.cc; sourceTree = "<group>"; };
-		CD2ECE791EA8A05200FA5F41 /* net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net.h; sourceTree = "<group>"; };
-		CD2ECE7A1EA8A05200FA5F41 /* poller.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = poller.cc; sourceTree = "<group>"; };
-		CD2ECE7B1EA8A05200FA5F41 /* poller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poller.h; sourceTree = "<group>"; };
-		CD2ECE7C1EA8A05200FA5F41 /* port_posix.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = port_posix.cc; sourceTree = "<group>"; };
-		CD2ECE7D1EA8A05200FA5F41 /* port_posix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = port_posix.h; sourceTree = "<group>"; };
-		CD2ECE7E1EA8A05200FA5F41 /* slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = slice.h; sourceTree = "<group>"; };
-		CD2ECE7F1EA8A05200FA5F41 /* stat-svr.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "stat-svr.cc"; sourceTree = "<group>"; };
-		CD2ECE801EA8A05200FA5F41 /* stat-svr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "stat-svr.h"; sourceTree = "<group>"; };
-		CD2ECE811EA8A05200FA5F41 /* status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = status.h; sourceTree = "<group>"; };
-		CD2ECE821EA8A05200FA5F41 /* threads.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = threads.cc; sourceTree = "<group>"; };
-		CD2ECE831EA8A05200FA5F41 /* threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = threads.h; sourceTree = "<group>"; };
-		CD2ECE841EA8A05200FA5F41 /* udp.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = udp.cc; sourceTree = "<group>"; };
-		CD2ECE851EA8A05200FA5F41 /* udp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = udp.h; sourceTree = "<group>"; };
-		CD2ECE861EA8A05200FA5F41 /* util.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cc; sourceTree = "<group>"; };
-		CD2ECE871EA8A05200FA5F41 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		CD2ECEDD1EA9080B00FA5F41 /* util.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = util.cc; path = handy/util.cc; sourceTree = "<group>"; };
+		CD2ECEDE1EA9080B00FA5F41 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = handy/util.h; sourceTree = "<group>"; };
 		CD6812BC1E082873008AA1FB /* primer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = primer; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6812BF1E082873008AA1FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CD9ADF4D1E51EEDD00B9D205 /* boostpra.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = boostpra.hpp; sourceTree = "<group>"; };
@@ -138,50 +92,10 @@
 		CD2ECE471EA8A05200FA5F41 /* handy-master */ = {
 			isa = PBXGroup;
 			children = (
-				CD2ECE651EA8A05200FA5F41 /* handy */,
+				CD2ECEDD1EA9080B00FA5F41 /* util.cc */,
+				CD2ECEDE1EA9080B00FA5F41 /* util.h */,
 			);
 			path = "handy-master";
-			sourceTree = "<group>";
-		};
-		CD2ECE651EA8A05200FA5F41 /* handy */ = {
-			isa = PBXGroup;
-			children = (
-				CD2ECE661EA8A05200FA5F41 /* codec.cc */,
-				CD2ECE671EA8A05200FA5F41 /* codec.h */,
-				CD2ECE681EA8A05200FA5F41 /* conf.cc */,
-				CD2ECE691EA8A05200FA5F41 /* conf.h */,
-				CD2ECE6A1EA8A05200FA5F41 /* conn.cc */,
-				CD2ECE6B1EA8A05200FA5F41 /* conn.h */,
-				CD2ECE6C1EA8A05200FA5F41 /* daemon.cc */,
-				CD2ECE6D1EA8A05200FA5F41 /* daemon.h */,
-				CD2ECE6E1EA8A05200FA5F41 /* event_base.cc */,
-				CD2ECE6F1EA8A05200FA5F41 /* event_base.h */,
-				CD2ECE701EA8A05200FA5F41 /* file.cc */,
-				CD2ECE711EA8A05200FA5F41 /* file.h */,
-				CD2ECE721EA8A05200FA5F41 /* handy-imp.h */,
-				CD2ECE731EA8A05200FA5F41 /* handy.h */,
-				CD2ECE741EA8A05200FA5F41 /* http.cc */,
-				CD2ECE751EA8A05200FA5F41 /* http.h */,
-				CD2ECE761EA8A05200FA5F41 /* logging.cc */,
-				CD2ECE771EA8A05200FA5F41 /* logging.h */,
-				CD2ECE781EA8A05200FA5F41 /* net.cc */,
-				CD2ECE791EA8A05200FA5F41 /* net.h */,
-				CD2ECE7A1EA8A05200FA5F41 /* poller.cc */,
-				CD2ECE7B1EA8A05200FA5F41 /* poller.h */,
-				CD2ECE7C1EA8A05200FA5F41 /* port_posix.cc */,
-				CD2ECE7D1EA8A05200FA5F41 /* port_posix.h */,
-				CD2ECE7E1EA8A05200FA5F41 /* slice.h */,
-				CD2ECE7F1EA8A05200FA5F41 /* stat-svr.cc */,
-				CD2ECE801EA8A05200FA5F41 /* stat-svr.h */,
-				CD2ECE811EA8A05200FA5F41 /* status.h */,
-				CD2ECE821EA8A05200FA5F41 /* threads.cc */,
-				CD2ECE831EA8A05200FA5F41 /* threads.h */,
-				CD2ECE841EA8A05200FA5F41 /* udp.cc */,
-				CD2ECE851EA8A05200FA5F41 /* udp.h */,
-				CD2ECE861EA8A05200FA5F41 /* util.cc */,
-				CD2ECE871EA8A05200FA5F41 /* util.h */,
-			);
-			path = handy;
 			sourceTree = "<group>";
 		};
 		CD6812B31E082873008AA1FB = {
@@ -275,25 +189,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD2ECEC01EA8A05200FA5F41 /* daemon.cc in Sources */,
-				CD2ECEBE1EA8A05200FA5F41 /* conf.cc in Sources */,
-				CD2ECEC31EA8A05200FA5F41 /* http.cc in Sources */,
-				CD2ECEC11EA8A05200FA5F41 /* event_base.cc in Sources */,
+				CD2ECEDF1EA9080B00FA5F41 /* util.cc in Sources */,
 				CDBB3F081E7F979E00D3087A /* async.cc in Sources */,
-				CD2ECEC51EA8A05200FA5F41 /* net.cc in Sources */,
 				CD6812C01E082873008AA1FB /* main.cpp in Sources */,
-				CD2ECEC41EA8A05200FA5F41 /* logging.cc in Sources */,
 				CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */,
-				CD2ECEC91EA8A05200FA5F41 /* threads.cc in Sources */,
 				CD0EC2A21EA363BD00A2BD0A /* easylogging++.cc in Sources */,
-				CD2ECEBF1EA8A05200FA5F41 /* conn.cc in Sources */,
-				CD2ECEC61EA8A05200FA5F41 /* poller.cc in Sources */,
-				CD2ECEC81EA8A05200FA5F41 /* stat-svr.cc in Sources */,
-				CD2ECEBD1EA8A05200FA5F41 /* codec.cc in Sources */,
-				CD2ECEC71EA8A05200FA5F41 /* port_posix.cc in Sources */,
-				CD2ECECB1EA8A05200FA5F41 /* util.cc in Sources */,
-				CD2ECEC21EA8A05200FA5F41 /* file.cc in Sources */,
-				CD2ECECA1EA8A05200FA5F41 /* udp.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

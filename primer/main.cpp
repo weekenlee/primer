@@ -25,8 +25,8 @@
 #include <bitset>
 #include <array>
 #include <iomanip>
-#include<locale>
-#include<codecvt>
+#include <locale>
+#include <codecvt>
 
 #include "StrBlob.hpp"
 #include "ThreadRun.hpp"
@@ -905,7 +905,7 @@ int main(int argc, const char * argv[]) {
     cout<<std::setprecision(2)<<TGetValue<float>(1)<<endl;
     cout<<std::setprecision(2)<<TGetValue<int>(1)<<endl;
     
-#endif
+//#endif
     std::string u8_source_str = u8"中文"; // utf-8
     std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> cvt;
     std::u16string u16_cvt_str = cvt.from_bytes(u8_source_str); // utf-8 to utf-16
@@ -921,8 +921,14 @@ int main(int argc, const char * argv[]) {
     std::cout << std::endl;
     cout<<u8_source_str<<endl;
     cout<<u8_cvt_str<<endl;
-
-
+#endif
+    
+//    system_clock，系统时钟，用来处理真实的时间的，可是和time_t类型互相转换。
+//    steady_clock 是稳定的时钟，用来计算时间间隔的。
+    std::chrono::time_point<std::chrono::system_clock> p = std::chrono::system_clock::now();
+    cout<<std::chrono::duration_cast<std::chrono::microseconds>(p.time_since_epoch()).count()<<endl;
+    std::chrono::time_point<std::chrono::steady_clock> p1 = std::chrono::steady_clock::now();
+    cout<<std::chrono::duration_cast<std::chrono::microseconds>(p1.time_since_epoch()).count()<<endl;
     
 }
 
