@@ -27,6 +27,7 @@
 #include <iomanip>
 #include <locale>
 #include <codecvt>
+#include <memory.h>
 
 #include "StrBlob.hpp"
 #include "ThreadRun.hpp"
@@ -921,7 +922,7 @@ int main(int argc, const char * argv[]) {
     std::cout << std::endl;
     cout<<u8_source_str<<endl;
     cout<<u8_cvt_str<<endl;
-#endif
+//#endif
     
 //    system_clock，系统时钟，用来处理真实的时间的，可是和time_t类型互相转换。
 //    steady_clock 是稳定的时钟，用来计算时间间隔的。
@@ -929,7 +930,31 @@ int main(int argc, const char * argv[]) {
     cout<<std::chrono::duration_cast<std::chrono::microseconds>(p.time_since_epoch()).count()<<endl;
     std::chrono::time_point<std::chrono::steady_clock> p1 = std::chrono::steady_clock::now();
     cout<<std::chrono::duration_cast<std::chrono::microseconds>(p1.time_since_epoch()).count()<<endl;
+#endif
     
+    // dynamically allocated array of char
+    char *concatenate_string = new char[strlen("hello " "world") + 1]();
+    strcat(concatenate_string, "hello ");
+    strcat(concatenate_string, "world");
+    std::cout << concatenate_string << std::endl;
+    delete [] concatenate_string;
+    
+    // std::string
+    std::string str1{ "hello " }, str2{ "world" };
+    std::cout << str1 + str2 << std::endl;
+    
+    std::unique_ptr<char []> pchar(new char[100]);
+    strcpy(pchar.get(), "hello world");
+    cout<<pchar.get()<<endl;
+    
+//    auto pschar = std::make_shared<char>(new char[100], [](char *p){delete [] p;});
+    std::shared_ptr<char> psschar(new char[100], [](char *p){delete [] p;});
+    strcpy(psschar.get(), "helloworld");
+    cout<<psschar.get()<<endl;
+    
+//    auto a = std::shared_ptr<char>(new char[100], [](char *p){delete [] p;});
+    auto a = psschar;
+    cout<<a.use_count()<<endl;
 }
 
 
