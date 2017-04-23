@@ -930,7 +930,7 @@ int main(int argc, const char * argv[]) {
     cout<<std::chrono::duration_cast<std::chrono::microseconds>(p.time_since_epoch()).count()<<endl;
     std::chrono::time_point<std::chrono::steady_clock> p1 = std::chrono::steady_clock::now();
     cout<<std::chrono::duration_cast<std::chrono::microseconds>(p1.time_since_epoch()).count()<<endl;
-#endif
+//#endif
     
     // dynamically allocated array of char
     char *concatenate_string = new char[strlen("hello " "world") + 1]();
@@ -955,6 +955,10 @@ int main(int argc, const char * argv[]) {
 //    auto a = std::shared_ptr<char>(new char[100], [](char *p){delete [] p;});
     auto a = psschar;
     cout<<a.use_count()<<endl;
+#endif
+   
+    
+    cout<<std::numeric_limits<int>::max()<<endl;
 }
 
 

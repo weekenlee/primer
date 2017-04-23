@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0E3F221EACF0D800C1D284 /* TextQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD0E3F201EACF0D800C1D284 /* TextQuery.cpp */; };
 		CD0EC2A21EA363BD00A2BD0A /* easylogging++.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC2A01EA363BD00A2BD0A /* easylogging++.cc */; };
+		CD2616801EAA548B00B2DC7E /* threads.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD26167E1EAA548B00B2DC7E /* threads.cc */; };
 		CD2ECEDF1EA9080B00FA5F41 /* util.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECEDD1EA9080B00FA5F41 /* util.cc */; };
 		CD6812C01E082873008AA1FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD6812BF1E082873008AA1FB /* main.cpp */; };
 		CDBB3F081E7F979E00D3087A /* async.cc in Sources */ = {isa = PBXBuildFile; fileRef = CDBB3F071E7F979E00D3087A /* async.cc */; };
@@ -27,11 +29,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD0E3F201EACF0D800C1D284 /* TextQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextQuery.cpp; sourceTree = "<group>"; };
+		CD0E3F211EACF0D800C1D284 /* TextQuery.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextQuery.hpp; sourceTree = "<group>"; };
 		CD0EC2A01EA363BD00A2BD0A /* easylogging++.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "easylogging++.cc"; sourceTree = "<group>"; };
 		CD0EC2A11EA363BD00A2BD0A /* easylogging++.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "easylogging++.h"; sourceTree = "<group>"; };
 		CD1C47751E67081100D43A41 /* TaskQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TaskQueue.hpp; sourceTree = "<group>"; };
 		CD1DED401E49E9600054485B /* func.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = func.hpp; sourceTree = "<group>"; };
 		CD2401891E951CB000430EB6 /* StrBlob.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StrBlob.hpp; sourceTree = "<group>"; };
+		CD26167E1EAA548B00B2DC7E /* threads.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = threads.cc; path = handy/threads.cc; sourceTree = "<group>"; };
+		CD26167F1EAA548B00B2DC7E /* threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = threads.h; path = handy/threads.h; sourceTree = "<group>"; };
 		CD2ECEDD1EA9080B00FA5F41 /* util.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = util.cc; path = handy/util.cc; sourceTree = "<group>"; };
 		CD2ECEDE1EA9080B00FA5F41 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = handy/util.h; sourceTree = "<group>"; };
 		CD6812BC1E082873008AA1FB /* primer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = primer; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +98,8 @@
 		CD2ECE471EA8A05200FA5F41 /* handy-master */ = {
 			isa = PBXGroup;
 			children = (
+				CD26167E1EAA548B00B2DC7E /* threads.cc */,
+				CD26167F1EAA548B00B2DC7E /* threads.h */,
 				CD2ECEDD1EA9080B00FA5F41 /* util.cc */,
 				CD2ECEDE1EA9080B00FA5F41 /* util.h */,
 			);
@@ -128,6 +136,8 @@
 				CD2401891E951CB000430EB6 /* StrBlob.hpp */,
 				CDC7F3BF1E9BD03A0073222F /* Binary.hpp */,
 				CDC7F3C21E9E737B0073222F /* templateTest.hpp */,
+				CD0E3F201EACF0D800C1D284 /* TextQuery.cpp */,
+				CD0E3F211EACF0D800C1D284 /* TextQuery.hpp */,
 			);
 			path = primer;
 			sourceTree = "<group>";
@@ -191,7 +201,9 @@
 			files = (
 				CD2ECEDF1EA9080B00FA5F41 /* util.cc in Sources */,
 				CDBB3F081E7F979E00D3087A /* async.cc in Sources */,
+				CD0E3F221EACF0D800C1D284 /* TextQuery.cpp in Sources */,
 				CD6812C01E082873008AA1FB /* main.cpp in Sources */,
+				CD2616801EAA548B00B2DC7E /* threads.cc in Sources */,
 				CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */,
 				CD0EC2A21EA363BD00A2BD0A /* easylogging++.cc in Sources */,
 			);
