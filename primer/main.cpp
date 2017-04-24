@@ -36,8 +36,10 @@
 #include "TaskQueue.hpp"
 #include "Binary.hpp"
 #include "templateTest.hpp"
+#include "TextQuery.hpp"
 
 #include "easylogging++.h"
+
 
 using std::cout;
 using std::cin;
@@ -959,6 +961,9 @@ int main(int argc, const char * argv[]) {
    
     
     cout<<std::numeric_limits<int>::max()<<endl;
+    
+    TextQuery tq("/Users/liweijian/Code/c++/primer/primer/primer/main.cpp");
+    tq.printResult(tq.queryText("int"));
 }
 
 
