@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0E3F241EAF95CC00C1D284 /* TextQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD0E3F231EAF95CC00C1D284 /* TextQuery.cpp */; };
 		CD0EC2A21EA363BD00A2BD0A /* easylogging++.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC2A01EA363BD00A2BD0A /* easylogging++.cc */; };
 		CD2616801EAA548B00B2DC7E /* threads.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD26167E1EAA548B00B2DC7E /* threads.cc */; };
 		CD2ECEDF1EA9080B00FA5F41 /* util.cc in Sources */ = {isa = PBXBuildFile; fileRef = CD2ECEDD1EA9080B00FA5F41 /* util.cc */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		CD0E3F211EACF0D800C1D284 /* TextQuery.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextQuery.hpp; sourceTree = "<group>"; };
+		CD0E3F231EAF95CC00C1D284 /* TextQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextQuery.cpp; sourceTree = "<group>"; };
 		CD0EC2A01EA363BD00A2BD0A /* easylogging++.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "easylogging++.cc"; sourceTree = "<group>"; };
 		CD0EC2A11EA363BD00A2BD0A /* easylogging++.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "easylogging++.h"; sourceTree = "<group>"; };
 		CD1C47751E67081100D43A41 /* TaskQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TaskQueue.hpp; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				CDC7F3BF1E9BD03A0073222F /* Binary.hpp */,
 				CDC7F3C21E9E737B0073222F /* templateTest.hpp */,
 				CD0E3F211EACF0D800C1D284 /* TextQuery.hpp */,
+				CD0E3F231EAF95CC00C1D284 /* TextQuery.cpp */,
 			);
 			path = primer;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			files = (
 				CD2ECEDF1EA9080B00FA5F41 /* util.cc in Sources */,
 				CDBB3F081E7F979E00D3087A /* async.cc in Sources */,
+				CD0E3F241EAF95CC00C1D284 /* TextQuery.cpp in Sources */,
 				CD6812C01E082873008AA1FB /* main.cpp in Sources */,
 				CD2616801EAA548B00B2DC7E /* threads.cc in Sources */,
 				CDCF640A1E379D420080C1BB /* ThreadRun.cpp in Sources */,

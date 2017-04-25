@@ -962,8 +962,8 @@ int main(int argc, const char * argv[]) {
     
     cout<<std::numeric_limits<int>::max()<<endl;
     
-    TextQuery tq("/Users/liweijian/Code/c++/primer/primer/primer/main.cpp");
-    tq.printResult(tq.queryText("int"));
+    lwj::TextQuery tq("/Users/liweijian/Code/c++/primer/primer/primer/main.cpp");
+    tq.queryText("int").printResult();
 }
 
 
